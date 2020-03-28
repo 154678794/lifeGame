@@ -3,6 +3,7 @@ using namespace std;
 #include<graphics.h>
 
 int cellNum[50][50]={0};
+int cellLength=29;
 IMAGE cellLive,cellDie;
 
 //初始化窗口图片
@@ -17,11 +18,11 @@ void init()
 		{
 			if(cellNum[i][j]==0)
 			{
-				putimage(j*29,i*29,&cellDie);
+				putimage(j*cellLength,i*cellLength,&cellDie);
 			}
 			else
 			{
-				putimage(j*29,i*29,&cellLive);
+				putimage(j*cellLength,i*cellLength,&cellLive);
 			}
 		}
 	}
@@ -33,12 +34,12 @@ void checkLive(int Flag,int I,int J)
 	if(Flag==3)
 	{
 		cellNum[I][J]=1;
-		putimage(J*29,I*29,&cellLive);
+		putimage(J*cellLength,I*cellLength,&cellLive);
 	}
 	else if(Flag!=2)
 	{
 		cellNum[I][J]=0;
-		putimage(J*29,I*29,&cellDie);
+		putimage(J*cellLength,I*cellLength,&cellDie);
 	}
 }
 //扫描每一个
@@ -80,7 +81,7 @@ void OnMouse()
 	{
 		
 		cellNum[15][15]=1;
-		putimage(15*29,15*29,&cellLive);
+		putimage(15*cellLength,15*cellLength,&cellLive);
 	}
 }
 
